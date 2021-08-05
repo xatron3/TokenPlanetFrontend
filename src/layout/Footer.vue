@@ -14,6 +14,13 @@
                 >Get started</router-link
               >
             </li>
+            <li>
+              <router-link
+                to="/tplanet-token"
+                class="text-gray-200 hover:text-gray-400"
+                >$TPlanet</router-link
+              >
+            </li>
           </nav>
         </div>
         <div class="lg:w-1/4 md:w-1/2 w-full px-4"></div>
@@ -38,8 +45,15 @@
           class="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start"
         >
           <div>
+            <a
+              href="https://twitter.com/TokenPlanet_BSC"
+              class="mr-2 "
+              target="_BLANK"
+            >
+              <i class="fab fa-twitter hover:text-blue-400 fa-lg"></i>
+            </a>
             <a href="https://t.me/TokenPlanetBSC" target="_BLANK">
-              <i class="fab fa-telegram-plane"></i>
+              <i class="fab fa-telegram-plane hover:text-blue-600 fa-lg"></i>
             </a>
           </div>
         </span>

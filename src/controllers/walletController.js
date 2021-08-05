@@ -4,6 +4,9 @@ import tokenController from "./tokenController";
 import axios from "axios";
 
 class WalletController {
+  /**
+   * Called on click to connect wallet.
+   */
   async connectWallet() {
     try {
       await this._connectWallet();
@@ -14,13 +17,27 @@ class WalletController {
 
   async _connectWallet() {
     await store.state.provider.send("eth_requestAccounts", []);
-    const signer = store.state.provider.getSigner();
-    store.commit("setWalletAddress", await signer.getAddress());
-    store.commit("setWalletBalance", await signer.getBalance());
-    console.log(`Wallet connected with ${await signer.getAddress()}`);
   }
 
+  /**
+   * Load wallet address and balance
+   */
+  async loadNewWallet() {
+    const signer = await store.state.provider.getSigner();
+    store.commit("setWalletAddress", await signer.getAddress());
+    store.commit("setWalletBalance", await signer.getBalance());
+    this.loadWalletTokens();
+  }
+
+  /**
+   * Load tokens that are in wallet from token list
+   */
   async loadWalletTokens() {
+    if (store.state.wallet.tokens.length > 0) {
+      store.commit("removeWalletTokens");
+      store.commit("resetTokenBalance");
+    }
+
     const url = `${config.apiUrl}/tokens`;
 
     const tokens = await axios.get(url);
@@ -41,7 +58,7 @@ class WalletController {
         const ownedValue =
           parseFloat(ownedAmount) * parseFloat(tokenPrice.usdPrice);
 
-        store.commit("addWalletValue", ownedValue);
+        store.commit("addTokenBalanceValue", ownedValue);
 
         const data = {
           address: tokenAddress,

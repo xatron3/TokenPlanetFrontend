@@ -26,6 +26,7 @@ body {
   background: #1a191d;
   padding: 0.375rem 0.75rem;
   border-radius: 20px;
+  color: rgba(243, 244, 246, var(--tw-text-opacity)) !important;
 }
 
 @-webkit-keyframes spinner {

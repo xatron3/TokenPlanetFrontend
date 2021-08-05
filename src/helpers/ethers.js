@@ -1,6 +1,7 @@
 /* eslint-disable */
 const providers = require("ethers").providers;
 const Web3HttpProvider = require("web3-providers-http");
+import walletController from "../controllers/walletController";
 
 const web3Url = new Web3HttpProvider("https://bsc-dataseed1.ninicoin.io/");
 
@@ -10,30 +11,23 @@ let provider;
 
 const loadProvider = async () => {
   if (typeof window.ethereum !== "undefined") {
-    if (window.ethereum.chainId !== "0x38") {
-      console.log("Wrong chain selected, going with public node");
-      provider = new providers.Web3Provider(web3Url, "any");
-    } else {
-      console.log("Found metamask, chosing this node");
-
+    if (window.ethereum.chainId === "0x38") {
       provider = new providers.Web3Provider(window.ethereum, "any");
-      const accounts = await provider.listAccounts();
-
-      if (accounts.length !== 0) {
-        const balance = await provider.getBalance(accounts[0]);
-
-        store.commit("setWalletAddress", accounts[0]);
-        store.commit("setWalletBalance", balance);
-      }
+    } else {
+      provider = new providers.Web3Provider(web3Url, "any");
     }
-    listenForChange();
   } else {
-    console.log("Could not find metamask");
-
     provider = new providers.Web3Provider(web3Url, "any");
   }
 
+  const accounts = await provider.listAccounts();
+
   store.commit("setProvider", provider);
+
+  if (accounts.length > 0) {
+    walletController.loadNewWallet();
+    listenForChange();
+  }
 };
 
 /**
@@ -41,10 +35,7 @@ const loadProvider = async () => {
  */
 const listenForChange = () => {
   window.ethereum.on("accountsChanged", async (accounts) => {
-    store.commit("setWalletAddress", accounts[0]);
-    const balance = await provider.getBalance(accounts[0]);
-    store.commit("setWalletBalance", balance);
-    store.commit("removeWalletTokens");
+    walletController.loadNewWallet();
   });
 
   window.ethereum.on("networkChanged", function(networkId) {

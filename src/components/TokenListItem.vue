@@ -41,9 +41,6 @@
         <div class="text-green-200 text-sm ">
           {{ usdPriceFormatted }}
         </div>
-        <div class="text-yellow-200 text-xs ">
-          {{ bnbPriceFormatted }}
-        </div>
       </div>
     </div>
 

@@ -1,6 +1,6 @@
 <template>
   <div class=" mt-12">
-    Tokens
+    List of BSC Tokens coming soon.
   </div>
 </template>
 

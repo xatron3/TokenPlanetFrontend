@@ -25,10 +25,13 @@ const store = createStore({
     setWalletAddress(state, address) {
       state.wallet.address = address;
     },
-    addWalletValue(state, value) {
+    addTokenBalanceValue(state, value) {
       const currentValue = state.wallet.value;
 
       state.wallet.value = currentValue + parseFloat(value);
+    },
+    resetTokenBalance(state) {
+      state.wallet.value = 0;
     },
     addTokenToWallet(state, tokenAddress) {
       state.wallet.tokens.push(tokenAddress);

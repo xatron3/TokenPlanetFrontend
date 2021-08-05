@@ -3,11 +3,20 @@
     class="md:flex md:ml-auto md:mr-auto flex-wrap items-center text-base justify-center nav"
   >
     <nav class="hidden md:block">
-      <router-link to="/" class="mr-5 px-3 py-1.5 hover:text-gray-400"
+      <router-link
+        to="/"
+        class="mr-5 px-3 py-1.5 text-gray-100 hover:text-gray-400"
         >Home</router-link
       >
-      <router-link to="/tokens" class="mr-5 px-3 py-1.5 hover:text-gray-400"
+      <router-link
+        to="/tokens"
+        class="mr-5 px-3 py-1.5 text-gray-100 hover:text-gray-400"
         >Tokens</router-link
+      >
+      <router-link
+        to="/tplanet-token"
+        class="mr-5 px-3 py-1.5 rounded-3xl bg-green-500 text-gray-800 hover:text-gray-700"
+        >$TPlanet</router-link
       >
     </nav>
     <div>
@@ -41,6 +50,11 @@
           to="/"
           class="mr-5 hover:text-gray-400 p-2 hover:bg-gray-700 rounded-sm"
           >Home</router-link
+        >
+        <router-link
+          to="/tokens"
+          class="mr-5 hover:text-gray-400 p-2 hover:bg-gray-700 rounded-sm"
+          >Tokens</router-link
         >
       </nav>
     </div>

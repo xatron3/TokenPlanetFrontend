@@ -1,21 +1,8 @@
 <template>
   <div class="grid grid-cols-12 gap-x-4 mt-12">
-    <div class="col-span-8">
-      <h2 class="text-3xl text-white mb-4">WALLET OVERVIEW</h2>
-      <div class="grid grid-cols-12 gap-x-4 text-center text-gray-200">
-        <div class="col-span-4 bg-gray-900 rounded-lg p-4">
-          <div>{{ walletValue }}</div>
-          <div>Wallet Balance</div>
-        </div>
-        <div class="col-span-4 bg-gray-900 rounded-lg p-4">
-          <div>{{ tokensOwnedAmount }}</div>
-          <div>Tokens Owned</div>
-        </div>
-        <div class="col-span-4 bg-gray-900 rounded-lg p-4">
-          <div>0</div>
-          <div>Defi Tokens</div>
-        </div>
-      </div>
+    <div class="col-span-12 md:col-span-8">
+      <WalletOverview />
+
       <div
         class="grid grid-cols-12 gap-x-4 mt-2 px-4 py-3 text-center text-gray-200"
       >
@@ -29,14 +16,14 @@
       </div>
       <div v-if="tokensOwnedAmount !== 0">
         <TokenListItem
-          v-for="tokenAddress in ownedTokens"
+          v-for="tokenAddress in tokensOwned"
           :key="tokenAddress.address"
           :tokenAddress="tokenAddress.address"
         />
       </div>
     </div>
 
-    <div class="col-span-4">
+    <div class="col-span-12 md:col-span-4">
       <h2 class="text-3xl text-white">NEW TOKENS</h2>
       <span class="text-sm text-gray-300"
         >New listed tokens on PancakeSwap</span
@@ -70,8 +57,8 @@
 
 <script>
 import TokenListItem from "../components/TokenListItem.vue";
+import WalletOverview from "../components/Home/WalletOverview.vue";
 import NewPairListItem from "../components/NewPairListItem.vue";
-import numeral from "numeral";
 import helpers from "../helpers/helpers";
 
 export default {
@@ -79,32 +66,26 @@ export default {
   components: {
     TokenListItem,
     NewPairListItem,
+    WalletOverview,
   },
   data() {
     return {
-      ownedTokens: [],
       sorter: null,
     };
   },
   computed: {
-    walletValue() {
-      return numeral(this.$store.state.wallet.value).format("$0,0[.]00");
-    },
-    tokensOwnedAmount() {
-      return this.$store.state.wallet.tokens.length;
+    tokensOwned() {
+      return this.$store.state.wallet.tokens;
     },
     newPairsAmount() {
       return this.$store.state.newPairAddresses.length;
     },
     newPairAddresses() {
       const newPairs = this.$store.state.newPairAddresses;
-      const newList = newPairs.slice(0, 10);
+      const newList = newPairs.reverse();
 
-      return newList.reverse();
+      return newList.slice(0, 10);
     },
-  },
-  mounted() {
-    this.ownedTokens = this.$store.state.wallet.tokens;
   },
   methods: {
     sort(type) {
@@ -120,7 +101,7 @@ export default {
             }
           }
 
-          this.ownedTokens.sort(helpers.dynamicSort(this.sorter));
+          this.newPairAddresses.sort(helpers.dynamicSort(this.sorter));
           break;
       }
     },

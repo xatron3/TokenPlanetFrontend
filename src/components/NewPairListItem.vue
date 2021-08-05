@@ -60,9 +60,15 @@ export default {
       return `https://exchange.pancakeswap.finance/#/swap?inputCurrency=${this.tokenAddress}`;
     },
   },
-  async mounted() {
+  async created() {
     const lpData = await tokenController.getPancakeLP(this.tokenAddress);
-    const BNBAmount = parseFloat(lpData.V2PancakeLP.bnbAmount);
+    let BNBAmount = 0;
+
+    if (lpData.V2PancakeLP !== null) {
+      BNBAmount = parseFloat(lpData.V2PancakeLP.bnbAmount);
+    } else {
+      BNBAmount = 0;
+    }
 
     if (BNBAmount > 0) {
       const data = await tokenController.getTokenInformation(this.tokenAddress);
@@ -86,23 +92,24 @@ export default {
           const BNBAmount = parseFloat(lpData.V2PancakeLP.bnbAmount);
           this.tokenInformation["BNBAmount"] = BNBAmount;
         }, 4000);
-      } else {
-        setInterval(async () => {
-          const lpData = await tokenController.getPancakeLP(this.tokenAddress);
-          const BNBAmount = parseFloat(lpData.V2PancakeLP.bnbAmount);
-          if (BNBAmount > 0) {
-            const data = await tokenController.getTokenInformation(
-              this.tokenAddress
-            );
-
-            this.tokenInformation["name"] = data.name;
-            this.tokenInformation["symbol"] = data.symbol;
-            this.tokenInformation["BNBStartAmount"] = BNBAmount;
-            this.tokenInformation["BNBAmount"] = BNBAmount;
-            this.gotLiqudity = true;
-          }
-        }, 20000);
       }
+      // } else {
+      //   setInterval(async () => {
+      //     const lpData = await tokenController.getPancakeLP(this.tokenAddress);
+      //     const BNBAmount = parseFloat(lpData.V2PancakeLP.bnbAmount);
+      //     if (BNBAmount > 0) {
+      //       const data = await tokenController.getTokenInformation(
+      //         this.tokenAddress
+      //       );
+
+      //       this.tokenInformation["name"] = data.name;
+      //       this.tokenInformation["symbol"] = data.symbol;
+      //       this.tokenInformation["BNBStartAmount"] = BNBAmount;
+      //       this.tokenInformation["BNBAmount"] = BNBAmount;
+      //       this.gotLiqudity = true;
+      //     }
+      //   }, 20000);
+      // }
     },
   },
 };

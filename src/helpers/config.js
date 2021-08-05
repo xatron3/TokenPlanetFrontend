@@ -1,6 +1,6 @@
 const config = {
   adminAddresses: [""],
-  apiUrl: "http://localhost:1337/api",
+  apiUrl: "https://api.tokenplanet.app/api",
   tokenAddresses: [
     "0x5e5115ce00d9f1de34454ea6211c1412cf238ce1",
     "0x7a18b98765f24a85f7966773a48a1d59d7ac51e2",

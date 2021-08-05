@@ -4,6 +4,8 @@ import { createWebHistory, createRouter } from "vue-router";
 import Home from "@/pages/Home.vue";
 import Token from "@/pages/Token.vue";
 import Tokens from "@/pages/Tokens.vue";
+import TPlanetToken from "@/pages/TPlanetToken.vue";
+
 // General Pages
 import NotFound from "@/pages/general/NotFound.vue";
 
@@ -22,6 +24,11 @@ const routes = [
     path: "/tokens",
     name: "Tokens",
     component: Tokens,
+  },
+  {
+    path: "/tplanet-token",
+    name: "$TPlanet",
+    component: TPlanetToken,
   },
   {
     path: "/:catchAll(.*)",
