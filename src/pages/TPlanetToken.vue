@@ -95,9 +95,10 @@ import TokenOverview from "../components/TPlanet/TokenOverview.vue";
 export default {
   name: "TPlanetToken",
   methods: {},
+  computed: {},
   components: {
     TokenOverview,
   },
-  mounted() {},
+  async mounted() {},
 };
 </script>

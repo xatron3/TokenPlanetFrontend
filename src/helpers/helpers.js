@@ -1,5 +1,5 @@
 class Helpers {
-  dynamicSort(property) {
+  dynamicSort = (property) => {
     var sortOrder = 1;
     if (property[0] === "-") {
       sortOrder = -1;
@@ -13,7 +13,21 @@ class Helpers {
         a[property] < b[property] ? -1 : a[property] > b[property] ? 1 : 0;
       return result * sortOrder;
     };
-  }
+  };
+
+  formatPrice = (price) => {
+    let formattedPrice;
+
+    var m = -Math.floor(Math.log10(price) + 1);
+
+    if (price.toFixed() < 0.01) {
+      formattedPrice = price.toFixed(m + 4);
+    } else {
+      formattedPrice = price.toFixed(2);
+    }
+
+    return formattedPrice;
+  };
 }
 
 export default new Helpers();

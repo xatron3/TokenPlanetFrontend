@@ -3,29 +3,76 @@
     <div
       class="col-span-4 bg-gray-900 rounded-lg flex flex-col justify-center px-1 py-3"
     >
-      <div>0$</div>
+      <div v-if="this.price !== null">{{ formattedPrice }}</div>
+      <div v-else>Loading....</div>
       <div class="text-xs">Price</div>
     </div>
     <div
       class="col-span-4 bg-gray-900 rounded-lg flex flex-col justify-center px-1 py-3"
     >
-      <div>100,000,000</div>
+      <div v-if="this.circulatingSupply !== null">
+        {{ formattedCirculatingSupply }}
+      </div>
+      <div v-else>Loading....</div>
       <div class="text-xs">Circulating Supply</div>
     </div>
     <div
       class="col-span-4 bg-gray-900 rounded-lg flex flex-col justify-center px-1 py-3"
     >
-      <div>$1,000</div>
+      <div v-if="this.price !== null && this.circulatingSupply !== null">
+        {{ formattedMarketcap }}
+      </div>
+      <div v-else>Loading....</div>
       <div class="text-xs">Marketcap</div>
     </div>
   </div>
 </template>
 
 <script>
+import tokenController from "../../controllers/tokenController";
+import priceController from "../../controllers/priceController";
+import numeral from "numeral";
+
 export default {
   name: "TokenOverview",
-  methods: {},
-  computed: {},
-  mounted() {},
+  data() {
+    return {
+      tokenAddress: "0x7b96c3d618eff0a8808f098260a9a51f901f0d0b",
+      circulatingSupply: null,
+      price: null,
+    };
+  },
+  methods: {
+    async getCirculatingSupply() {
+      return await tokenController.getCirculatingSupply(this.tokenAddress);
+    },
+    async getPrice() {
+      return await priceController.getPrice(this.tokenAddress);
+    },
+    getMarketCap() {
+      const marketcap = this.circulatingSupply * this.price;
+
+      return marketcap;
+    },
+  },
+  computed: {
+    formattedCirculatingSupply() {
+      const supply = this.circulatingSupply;
+
+      return numeral(supply).format("0,0");
+    },
+    formattedPrice() {
+      return `${this.price}$`;
+    },
+    formattedMarketcap() {
+      const marketcap = this.getMarketCap();
+
+      return numeral(marketcap).format("0,0[.]00$");
+    },
+  },
+  async mounted() {
+    this.circulatingSupply = await this.getCirculatingSupply();
+    this.price = await this.getPrice();
+  },
 };
 </script>

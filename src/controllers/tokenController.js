@@ -74,6 +74,47 @@ class TokenController {
     return data;
   }
 
+  /**
+   * Get circulating supply
+   * @param {string} tokenAddress
+   * @returns
+   */
+  async getCirculatingSupply(tokenAddress) {
+    const deadAmount = await this.getTokenAmount(
+      "0x000000000000000000000000000000000000dead",
+      tokenAddress
+    );
+
+    const deadAmount1 = await this.getTokenAmount(
+      "0x0000000000000000000000000000000000000000",
+      tokenAddress
+    );
+
+    const burnedAmount = parseFloat(deadAmount) + parseFloat(deadAmount1);
+
+    const contract = new ethers.Contract(
+      tokenAddress,
+      erc20Abi,
+      store.state.provider
+    );
+
+    const totalSupply = await contract.totalSupply();
+    const decimals = await contract.decimals();
+
+    const formattedTotalSupply = parseInt(
+      ethers.utils.formatUnits(totalSupply, decimals)
+    );
+
+    const supply = formattedTotalSupply - burnedAmount;
+
+    return supply;
+  }
+
+  /**
+   * Get token logo
+   * @param {string} tokenAddress
+   * @returns
+   */
   getTokenLogo(tokenAddress) {
     const checksum = ethers.utils.getAddress(tokenAddress);
     let logoUrl = "";
