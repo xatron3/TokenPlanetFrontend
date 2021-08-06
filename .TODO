@@ -3,10 +3,8 @@ USEFUL:
   https://api.pancakeswap.info/api/v2/tokens/0x435d4ccb66003b1bac9bd9ef1aed72ad3f869145
 
 TODO:
-  ☐ Create simple TPlanet Token page @created(21-08-05 04:03)
   ☐ Create tokens list @created(21-08-05 04:04)
   ☐ Edit token page @created(21-08-05 04:06)
-    ☐ Add total supply, circulating supply and market cap @created(21-08-05 04:07)
     ☐ Add in token information @created(21-08-05 04:06)
       ☐ Should be taken from API first, it not existing take TrustWallet else non @created(21-08-05 04:06)
   ☐ Create Get Listed page @created(21-08-05 04:04)
@@ -18,10 +16,11 @@ TODO:
     ☐ Create Upcoming Tokens page @created(21-08-05 04:05)
       ☐ This should have presell/fair launches coming @created(21-08-05 04:05)
   ☐ Create voting possibilities for token @created(21-08-05 12:26)
-  ☐ Create dropdown around account for profile and adminpanel @created(21-08-05 12:39)
 
-  
 Archive:
+  ✔ Create dropdown around account for profile and adminpanel @created(21-08-05 12:39) @done(21-08-06 03:44) @project(TODO)
+  ✔ Add total supply, circulating supply and market cap @created(21-08-05 04:07) @done(21-08-06 03:44) @project(TODO)
+  ✔ Create simple TPlanet Token page @created(21-08-05 04:03) @done(21-08-06 03:44) @project(TODO)
   ✔ Create function for account change @created(21-08-05 04:02) @done(21-08-05 12:38) @project(TODO)
   ✔ Move this from ethers.js into walletController @created(21-08-05 04:03) @done(21-08-05 12:38) @project(TODO)
   ✔ Clean current tokens @created(21-08-05 04:02) @done(21-08-05 12:38) @project(TODO)

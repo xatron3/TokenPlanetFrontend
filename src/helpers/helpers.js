@@ -15,18 +15,19 @@ class Helpers {
     };
   };
 
-  formatPrice = (price) => {
-    let formattedPrice;
+  formatNumber = (number, decimals = 4) => {
+    number = parseFloat(number);
+    let formattedNumber;
 
-    var m = -Math.floor(Math.log10(price) + 1);
+    var m = -Math.floor(Math.log10(number) + 1);
 
-    if (price.toFixed() < 0.01) {
-      formattedPrice = price.toFixed(m + 4);
+    if (number.toFixed() < 0.01) {
+      formattedNumber = number.toFixed(m + decimals);
     } else {
-      formattedPrice = price.toFixed(2);
+      formattedNumber = number.toFixed(2);
     }
 
-    return formattedPrice;
+    return formattedNumber;
   };
 }
 

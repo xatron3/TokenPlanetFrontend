@@ -12,16 +12,16 @@
 
 <script>
 import Logo from "../Logo.vue";
-import priceController from "../../controllers/priceController";
+import tokenController from "../../controllers/tokenController";
 import config from "../../helpers/config";
 
 export default {
   name: "TokenPrice",
   methods: {
     async getTokenPrice() {
-      const price = await priceController.getPrice(config.tokenAddress);
+      const price = await tokenController.getTokenPrice(config.tokenAddress);
 
-      this.price = price;
+      this.price = price.usdPrice;
     },
   },
   data() {

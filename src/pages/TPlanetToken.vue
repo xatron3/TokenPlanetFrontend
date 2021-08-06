@@ -131,13 +131,17 @@
           sources that help us sustain the project even in times when things
           don’t look too bright!
         </p>
+
+        <Sustainability />
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import Sustainability from "../components/TPlanet/Sustainability.vue";
 import TokenOverview from "../components/Token/TokenOverview.vue";
+
 import config from "../helpers/config";
 
 export default {
@@ -151,6 +155,7 @@ export default {
   computed: {},
   components: {
     TokenOverview,
+    Sustainability,
   },
   async mounted() {},
 };

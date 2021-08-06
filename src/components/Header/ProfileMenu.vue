@@ -11,7 +11,10 @@
     <div class="text-center text-yellow-200">ACCOUNT STATUS</div>
     <hr class="my-2" />
 
-    <router-link to="/" class="text-center w-full block" v-if="this.isAdmin"
+    <router-link
+      to="/admin"
+      class="text-center w-full block"
+      v-if="this.isAdmin"
       >Adminpanel</router-link
     >
   </div>

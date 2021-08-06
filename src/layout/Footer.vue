@@ -31,6 +31,14 @@
           >
             INFOBOX
           </h2>
+
+          <p class="text-sm text-gray-200">
+            Token Planet (TPlanet) serves as a utility token for the Token
+            Planet platform. Users will be required to hold a certain amount of
+            tokens to obtain a premium membership. Different levels of
+            membership will unlock features on tokenplanet.app and also give
+            other benefits.
+          </p>
         </div>
       </div>
     </div>

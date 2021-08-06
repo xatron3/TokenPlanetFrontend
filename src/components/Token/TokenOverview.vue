@@ -30,7 +30,6 @@
 
 <script>
 import tokenController from "../../controllers/tokenController";
-import priceController from "../../controllers/priceController";
 import numeral from "numeral";
 
 export default {
@@ -49,7 +48,9 @@ export default {
       return await tokenController.getCirculatingSupply(this.tokenAddress);
     },
     async getPrice() {
-      return await priceController.getPrice(this.tokenAddress);
+      const price = await tokenController.getTokenPrice(this.tokenAddress);
+
+      return price.usdPrice;
     },
     getMarketCap() {
       const marketcap = this.circulatingSupply * this.price;

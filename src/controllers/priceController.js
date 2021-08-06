@@ -101,7 +101,9 @@ class PriceController {
     const bnbPrice = await this.getBNBPrice();
     const tokenPriceInBnb = await this.getTokenPriceInBNB(tokenAddress);
 
-    const tokenUsdPrice = await helpers.formatPrice(bnbPrice * tokenPriceInBnb);
+    const tokenUsdPrice = await helpers.formatNumber(
+      bnbPrice * tokenPriceInBnb
+    );
 
     return tokenUsdPrice;
   }
