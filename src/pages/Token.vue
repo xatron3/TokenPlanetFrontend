@@ -1,18 +1,31 @@
 <template>
   <div v-if="this.loaded.tokenInfo" class=" mt-12">
-    <h1 class="text-4xl text-white">{{ tokenName }}</h1>
-    <span class="text-yellow-200" v-if="this.loaded.price">{{ usdPrice }}</span>
+    <div class="flex items-center mb-4">
+      <h1 class="text-4xl text-white">{{ tokenName }}</h1>
+
+      <div class="ml-4 flex">
+        <a :href="poocoinUrl" target="_BLANK"
+          ><img src="@/assets/images/logos/poocoin.png" class="w-7 h-7 mr-2"
+        /></a>
+        <a :href="bscScanUrl" target="_BLANK"
+          ><img src="@/assets/images/logos/bscscan.png" class="w-7 h-7"
+        /></a>
+      </div>
+    </div>
+    <TokenOverview :tokenAddress="this.tokenAddress" />
     <div class="grid grid-cols-12 gap-x-4"></div>
   </div>
 </template>
 
 <script>
+import TokenOverview from "../components/Token/TokenOverview.vue";
+
 import TokenController from "../controllers/tokenController";
 import numeral from "numeral";
 
 export default {
   name: "Home",
-  components: {},
+  components: { TokenOverview },
   data() {
     return {
       tokenAddress: null,
@@ -24,6 +37,15 @@ export default {
     };
   },
   computed: {
+    bscScanUrl() {
+      return `https://bscscan.com/token/${this.tokenAddress}`;
+    },
+    poocoinUrl() {
+      return `https://poocoin.app/tokens/${this.tokenAddress}`;
+    },
+    pancakeSwapUrl() {
+      return `https://exchange.pancakeswap.finance/#/swap?outputCurrency=${this.tokenAddress}`;
+    },
     tokenName() {
       return `${this.tokenInformation["name"]} (${this.tokenInformation["symbol"]})`;
     },

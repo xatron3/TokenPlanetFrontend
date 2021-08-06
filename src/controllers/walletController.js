@@ -26,7 +26,28 @@ class WalletController {
     const signer = await store.state.provider.getSigner();
     store.commit("setWalletAddress", await signer.getAddress());
     store.commit("setWalletBalance", await signer.getBalance());
+    this.checkForAdmin();
     this.loadWalletTokens();
+    this.loadTPlanetBalance();
+  }
+
+  async checkForAdmin() {
+    const isAdmin = config.adminAddresses.indexOf(store.state.wallet.address);
+
+    if (isAdmin !== -1) {
+      store.commit("isAdmin", true);
+    } else {
+      store.commit("isAdmin", false);
+    }
+  }
+
+  async loadTPlanetBalance() {
+    const ownedAmount = await tokenController.getTokenAmount(
+      store.state.wallet.address,
+      config.tokenAddress
+    );
+
+    store.commit("setTPlanetBalance", ownedAmount);
   }
 
   /**

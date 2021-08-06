@@ -2,7 +2,8 @@ import erc20Abi from "../abis/ERC20";
 import factoryAbi from "../abis/PancakeSwapFactory";
 import { ethers } from "ethers";
 import store from "../store/store";
-import axios from "axios";
+// import axios from "axios";
+import priceController from "./priceController";
 
 class TokenController {
   /**
@@ -62,13 +63,15 @@ class TokenController {
    * @returns
    */
   async getTokenPrice(tokenAddress) {
-    const tokenUrl = `https://api.pancakeswap.info/api/v2/tokens/${tokenAddress}`;
+    const price = await priceController.getPrice(tokenAddress);
+    const priceInBnb = await priceController.getTokenPriceInBNB(tokenAddress);
+    // const tokenUrl = `https://api.pancakeswap.info/api/v2/tokens/${tokenAddress}`;
 
-    const tokenInfo = await axios.get(tokenUrl);
+    // const tokenInfo = await axios.get(tokenUrl);
 
     const data = {
-      usdPrice: tokenInfo.data.data.price,
-      bnbPrice: tokenInfo.data.data.price_BNB,
+      usdPrice: price,
+      bnbPrice: priceInBnb,
     };
 
     return data;

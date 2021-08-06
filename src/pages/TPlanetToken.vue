@@ -1,10 +1,53 @@
 <template>
   <div class="mt-12">
     <div class="mb-4">
-      <h1 class="text-green-300 text-4xl text-center mb-4">
-        $TPlanet Overview
-      </h1>
-      <TokenOverview />
+      <div class="flex items-center mb-4">
+        <h1 class="text-green-300 text-4xl text-center ">
+          $TPlanet Overview
+        </h1>
+
+        <div class="ml-4 flex">
+          <a
+            href="https://pancakeswap.finance/swap#/swap?outputCurrency=0x7b96c3d618eff0a8808f098260a9a51f901f0d0b"
+            target="_BLANK"
+            class="px-4 py-2 font-medium 
+              tracking-wide text-white 
+              text-base
+              mt-2
+              transition-colors duration-200 transform 
+              bg-green-700 
+              rounded-md
+              flex
+              items-center
+              mr-2
+              hover:bg-green-800 
+              focus:outline-none focus:bg-green-500"
+          >
+            <i class="fas fa-exchange-alt mr-2"></i>
+            Trade
+          </a>
+
+          <a
+            href="https://poocoin.app/tokens/0x7b96c3d618eff0a8808f098260a9a51f901f0d0b"
+            target="_BLANK"
+            class="px-4 py-2 font-medium 
+              tracking-wide text-white 
+              text-base
+              mt-2
+              transition-colors duration-200 transform 
+              bg-yellow-700 
+              rounded-md
+              flex
+              items-center
+              hover:bg-yellow-800 
+              focus:outline-none focus:bg-yellow-500"
+          >
+            <i class="far fa-chart-bar mr-2"></i>
+            Chart
+          </a>
+        </div>
+      </div>
+      <TokenOverview :tokenAddress="this.tokenAddress" />
     </div>
 
     <div class="grid grid-cols-12 gap-x-8 text-gray-200">
@@ -51,6 +94,10 @@
               <td class="p-2 text-yellow-300">Initial Listing Liquidity</td>
               <td class="p-2">90,000,000 TPlanet - 2 BNB</td>
             </tr>
+            <tr>
+              <td class="p-2 text-yellow-300">Contract Address</td>
+              <td class="p-2">0x7b96c3d618eff0a8808f098260a9a51f901f0d0b</td>
+            </tr>
           </table>
 
           <h3 class="text-lg text-green-300 mt-2">Transactions Fees</h3>
@@ -90,11 +137,17 @@
 </template>
 
 <script>
-import TokenOverview from "../components/TPlanet/TokenOverview.vue";
+import TokenOverview from "../components/Token/TokenOverview.vue";
+import config from "../helpers/config";
 
 export default {
   name: "TPlanetToken",
   methods: {},
+  data() {
+    return {
+      tokenAddress: config.tokenAddress,
+    };
+  },
   computed: {},
   components: {
     TokenOverview,

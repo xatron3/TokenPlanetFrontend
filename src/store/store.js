@@ -10,6 +10,8 @@ const store = createStore({
         balance: 0,
         tokens: [],
         value: 0,
+        tPlanetBalance: 0,
+        isAdmin: false,
       },
       provider: null,
       newPairAddresses: [],
@@ -35,6 +37,12 @@ const store = createStore({
     },
     addTokenToWallet(state, tokenAddress) {
       state.wallet.tokens.push(tokenAddress);
+    },
+    setTPlanetBalance(state, balance) {
+      state.wallet.tPlanetBalance = balance;
+    },
+    isAdmin(state, value) {
+      state.wallet.isAdmin = value;
     },
     removeWalletTokens(state) {
       state.wallet.tokens = [];

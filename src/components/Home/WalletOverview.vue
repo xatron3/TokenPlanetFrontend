@@ -16,7 +16,7 @@
     <div
       class="col-span-4 bg-gray-900 rounded-lg flex flex-col justify-center px-1 py-3"
     >
-      <div>0</div>
+      <div>{{ formattedTPlanetBalance }}</div>
       <div class="text-xs">TPlanet Balance</div>
     </div>
   </div>
@@ -28,6 +28,7 @@ import numeral from "numeral";
 export default {
   name: "WalletOverview",
   methods: {},
+  data() {},
   computed: {
     walletValue() {
       return numeral(this.$store.state.wallet.value).format("$0,0[.]00");
@@ -35,7 +36,10 @@ export default {
     tokensOwnedAmount() {
       return this.$store.state.wallet.tokens.length;
     },
+    formattedTPlanetBalance() {
+      return numeral(this.$store.state.wallet.tPlanetBalance).format("0,0");
+    },
   },
-  mounted() {},
+  async mounted() {},
 };
 </script>

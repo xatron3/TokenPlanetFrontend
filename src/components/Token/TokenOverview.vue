@@ -37,10 +37,12 @@ export default {
   name: "TokenOverview",
   data() {
     return {
-      tokenAddress: "0x7b96c3d618eff0a8808f098260a9a51f901f0d0b",
       circulatingSupply: null,
       price: null,
     };
+  },
+  props: {
+    tokenAddress: String,
   },
   methods: {
     async getCirculatingSupply() {
@@ -62,12 +64,12 @@ export default {
       return numeral(supply).format("0,0");
     },
     formattedPrice() {
-      return `${this.price}$`;
+      return `$${this.price}`;
     },
     formattedMarketcap() {
       const marketcap = this.getMarketCap();
 
-      return numeral(marketcap).format("0,0[.]00$");
+      return numeral(marketcap).format("$0,0[.]00");
     },
   },
   async mounted() {

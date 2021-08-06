@@ -57,7 +57,7 @@ export default {
       return `https://poocoin.app/tokens/${this.tokenAddress}`;
     },
     pancakeSwapUrl() {
-      return `https://exchange.pancakeswap.finance/#/swap?inputCurrency=${this.tokenAddress}`;
+      return `https://exchange.pancakeswap.finance/#/swap?outputCurrency=${this.tokenAddress}`;
     },
   },
   async created() {

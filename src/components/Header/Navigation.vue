@@ -62,7 +62,7 @@
 </template>
 
 <script>
-import ConnectWallet from "../components/ConntectWallet.vue";
+import ConnectWallet from "./ConntectWallet.vue";
 
 export default {
   name: "Navigation",

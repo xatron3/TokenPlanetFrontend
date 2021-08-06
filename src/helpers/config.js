@@ -1,5 +1,9 @@
 const config = {
-  adminAddresses: [""],
+  adminAddresses: [
+    "0x35bf8375b6b998ec0808FC28d5BC995Cb6C95859",
+    "0xe0Bf3ab9339726C455711Bce238DFb695B5aF1C7",
+  ],
+  tokenAddress: "0x7b96c3d618eff0a8808f098260a9a51f901f0d0b",
   apiUrl: "https://api.tokenplanet.app/api",
   tokenAddresses: [
     "0x5e5115ce00d9f1de34454ea6211c1412cf238ce1",
