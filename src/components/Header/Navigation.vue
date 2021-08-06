@@ -40,7 +40,6 @@
       <nav
         class="absolute md:hidden md:relative top-16 left-0 md:top-0 z-20 flex-col md:flex-row md:space-x-6 font-semibold w-full md:w-auto bg-gray-900 shadow-md rounded-md p-4"
         :class="{ flex: mobileMenuOpen, hidden: !mobileMenuOpen }"
-        @click="mobileMenuOpen = false"
       >
         <div>
           <ConnectWallet />
@@ -49,11 +48,13 @@
         <router-link
           to="/"
           class="mr-5 hover:text-gray-400 p-2 hover:bg-gray-700 rounded-sm"
+          @click="mobileMenuOpen = false"
           >Home</router-link
         >
         <router-link
           to="/tokens"
           class="mr-5 hover:text-gray-400 p-2 hover:bg-gray-700 rounded-sm"
+          @click="mobileMenuOpen = false"
           >Tokens</router-link
         >
       </nav>

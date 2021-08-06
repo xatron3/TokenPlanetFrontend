@@ -10,8 +10,10 @@
           </h2>
           <nav class="list-none mb-10">
             <li>
-              <router-link to="/" class="text-gray-200 hover:text-gray-400"
-                >Get started</router-link
+              <router-link
+                to="/changelog"
+                class="text-gray-200 hover:text-gray-400"
+                >Changelog</router-link
               >
             </li>
             <li>

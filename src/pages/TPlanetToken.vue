@@ -98,6 +98,16 @@
               <td class="p-2 text-yellow-300">Contract Address</td>
               <td class="p-2">0x7b96c3d618eff0a8808f098260a9a51f901f0d0b</td>
             </tr>
+            <tr>
+              <td class="p-2 text-yellow-300">Liquidity Lock</td>
+              <td class="p-2">
+                <a
+                  target="_BLANK"
+                  href="https://dxsale.app/app/v2_9/dxlockview?id=0&add=0x5DaDE8Cb65e613ffAB53e55D2E39e7F4b812d1D8&type=lplock&chain=BSC"
+                  >DXSale Locker</a
+                >
+              </td>
+            </tr>
           </table>
 
           <h3 class="text-lg text-green-300 mt-2">Transactions Fees</h3>

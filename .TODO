@@ -3,9 +3,10 @@ USEFUL:
   https://api.pancakeswap.info/api/v2/tokens/0x435d4ccb66003b1bac9bd9ef1aed72ad3f869145
 
 TODO:
-  ☐ Create tokens list @created(21-08-05 04:04)
+  ☐ Create tokens list page @created(21-08-05 04:04)
   ☐ Edit token page @created(21-08-05 04:06)
     ☐ Add in token information @created(21-08-05 04:06)
+      ☐ Token description @created(21-08-06 06:25)
       ☐ Should be taken from API first, it not existing take TrustWallet else non @created(21-08-05 04:06)
   ☐ Create Get Listed page @created(21-08-05 04:04)
     ☐ Link it in Useful Links in footer @created(21-08-05 04:04)
@@ -16,6 +17,8 @@ TODO:
     ☐ Create Upcoming Tokens page @created(21-08-05 04:05)
       ☐ This should have presell/fair launches coming @created(21-08-05 04:05)
   ☐ Create voting possibilities for token @created(21-08-05 12:26)
+  ☐ Create adminpanel token listing possibilities @created(21-08-06 06:25)
+  ☐ Add in membership ranks on wallet load @created(21-08-06 06:26)
 
 Archive:
   ✔ Create dropdown around account for profile and adminpanel @created(21-08-05 12:39) @done(21-08-06 03:44) @project(TODO)

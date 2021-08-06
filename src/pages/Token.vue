@@ -71,7 +71,6 @@ export default {
       this.tokenInformation["name"] = data.name;
       this.tokenInformation["symbol"] = data.symbol;
       this.tokenInformation["totalSupply"] = data.totalSupply;
-      console.log(this.tokenInformation);
       this.loaded.tokenInfo = true;
     },
     async getTokenPrice() {

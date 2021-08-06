@@ -101,7 +101,7 @@ export default {
             }
           }
 
-          this.newPairAddresses.sort(helpers.dynamicSort(this.sorter));
+          this.tokensOwned.sort(helpers.dynamicSort(this.sorter));
           break;
       }
     },

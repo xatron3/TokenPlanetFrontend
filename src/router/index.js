@@ -6,6 +6,7 @@ import admin from "./middleware/admin";
 // Public Pages
 import Home from "@/pages/Home.vue";
 import Token from "@/pages/Token.vue";
+import Changelog from "@/pages/Changelog.vue";
 import Tokens from "@/pages/Tokens.vue";
 import TPlanetToken from "@/pages/TPlanetToken.vue";
 
@@ -30,6 +31,11 @@ const routes = [
     path: "/tokens",
     name: "Tokens",
     component: Tokens,
+  },
+  {
+    path: "/changelog",
+    name: "Changelog",
+    component: Changelog,
   },
   {
     path: "/tplanet-token",

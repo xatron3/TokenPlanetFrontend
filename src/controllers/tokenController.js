@@ -20,6 +20,14 @@ class TokenController {
     const name = await contract.name();
     const symbol = await contract.symbol();
 
+    let dividendTracker;
+
+    try {
+      dividendTracker = await contract.dividendTracker();
+    } catch (error) {
+      dividendTracker = null;
+    }
+
     const totalSupply = await contract.totalSupply();
     const decimals = await contract.decimals();
     const formattedTotalSupply = parseInt(
@@ -30,6 +38,7 @@ class TokenController {
       name: name,
       symbol: symbol,
       totalSupply: formattedTotalSupply,
+      dividendTracker: dividendTracker,
     };
 
     return data;
