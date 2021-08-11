@@ -50,9 +50,9 @@
       <TokenOverview :tokenAddress="this.tokenAddress" />
     </div>
 
-    <div class="grid grid-cols-12 gap-x-8 text-gray-200">
+    <div class="grid grid-cols-12 gap-x-8 text-white">
       <div class="col-span-12 md:col-span-6">
-        <h2 class="text-gray-300 text-3xl text-center mb-4">
+        <h2 class="text-green-300 text-3xl text-center mb-4">
           Token Information
         </h2>
         <div>
@@ -123,7 +123,7 @@
         </div>
       </div>
       <div class="col-span-12 md:col-span-6 mt-4 md:mt-0">
-        <h2 class="text-gray-300 text-3xl text-center mb-4">
+        <h2 class="text-green-300 text-3xl text-center mb-4">
           Sustainability
         </h2>
         <p>

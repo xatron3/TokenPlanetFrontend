@@ -12,14 +12,14 @@
             <li>
               <router-link
                 to="/changelog"
-                class="text-gray-200 hover:text-gray-400"
+                class="text-white hover:text-gray-100"
                 >Changelog</router-link
               >
             </li>
             <li>
               <router-link
                 to="/tplanet-token"
-                class="text-gray-200 hover:text-gray-400"
+                class="text-white hover:text-gray-100"
                 >$TPlanet</router-link
               >
             </li>
@@ -34,7 +34,7 @@
             INFOBOX
           </h2>
 
-          <p class="text-sm text-gray-200">
+          <p class="text-sm text-white">
             Token Planet (TPlanet) serves as a utility token for the Token
             Planet platform. Users will be required to hold a certain amount of
             tokens to obtain a premium membership. Different levels of

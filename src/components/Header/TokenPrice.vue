@@ -3,9 +3,12 @@
     class="inline-flex items-center bg-gray-800 leading-none ${props.textColor} rounded-full py-2 px-4 shadow text-teal text-sm"
   >
     <Logo :text="false" :class="'w-4 h-4'" :url="'/tplanet-token'" />
-    <router-link to="/tplanet-token" class="ml-2" v-if="this.price !== null">{{
-      tokenPrice
-    }}</router-link>
+    <router-link
+      to="/tplanet-token"
+      class="ml-2 text-white"
+      v-if="this.price !== null"
+      >{{ tokenPrice }}</router-link
+    >
     <span class="ml-2" v-else>...</span>
   </div>
 </template>

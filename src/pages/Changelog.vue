@@ -2,14 +2,14 @@
   <div class="mt-12">
     <div>
       <h1 class="text-green-300 text-4xl">Changelog</h1>
-      <h3 class="text-gray-200 text-lg">
+      <h3 class="text-white text-lg">
         Here you will find regular updates for the Token Planet app
       </h3>
     </div>
 
-    <div class="mt-6 text-gray-200">
+    <div class="mt-6 text-white">
       <h1 class="text-green-300 text-3xl">Planned Features and Events</h1>
-      <h3 class="text-gray-200 text-md">
+      <h3 class="text-md">
         We never ensure that we will develop the things mentioned below,
         <br />we will always put our focus to what we think is best for the time
         being.

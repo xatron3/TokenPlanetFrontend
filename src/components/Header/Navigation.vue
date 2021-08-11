@@ -5,17 +5,17 @@
     <nav class="hidden md:block">
       <router-link
         to="/"
-        class="mr-5 px-3 py-1.5 text-gray-100 hover:text-gray-400"
+        class="mr-5 px-3 py-1.5 text-white hover:text-green-400"
         >Home</router-link
       >
       <router-link
         to="/tokens"
-        class="mr-5 px-3 py-1.5 text-gray-100 hover:text-gray-400"
+        class="mr-5 px-3 py-1.5 text-white hover:text-green-400"
         >Tokens</router-link
       >
       <router-link
         to="/tplanet-token"
-        class="mr-5 px-3 py-1.5 rounded-3xl bg-green-500 text-gray-800 hover:text-gray-700"
+        class="mr-5 px-3 py-1.5 rounded-3xl text-white hover:text-green-400"
         >$TPlanet</router-link
       >
     </nav>

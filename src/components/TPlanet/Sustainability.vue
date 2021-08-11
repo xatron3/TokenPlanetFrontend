@@ -2,15 +2,15 @@
   <div>
     <h3 class="text-lg text-green-300 my-2">Sustainability Tracker</h3>
     <div class="grid grid-cols-3 gap-6">
-      <div class="text-center bg-gray-900 rounded-md p-2">
+      <div class="text-center bg-gray-800 rounded-md p-2">
         <span class="text-sm">{{ this.bnbBalance }}</span>
         <div class="text-yellow-200">Buy Back Amount</div>
       </div>
-      <div class="text-center bg-gray-900 rounded-md p-2">
+      <div class="text-center bg-gray-800 rounded-md p-2">
         <span class="text-sm">{{ stakedCake }}</span>
         <div class="text-yellow-200">$CAKE Staked</div>
       </div>
-      <div class="text-center bg-gray-900 rounded-md p-2">
+      <div class="text-center bg-gray-800 rounded-md p-2">
         <span class="text-sm">{{ pendingDividends }}</span>
         <div class="text-yellow-200">Pending Dividends</div>
       </div>

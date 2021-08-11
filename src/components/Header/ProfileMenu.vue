@@ -7,7 +7,7 @@
     tabindex="-1"
     v-if="this.showDropdown"
   >
-    <div class="text-center mb-1">NONE</div>
+    <div class="text-center mb-1">{{ membership }}</div>
     <div class="text-center text-yellow-200">ACCOUNT STATUS</div>
     <hr class="my-2" />
 
@@ -21,6 +21,8 @@
 </template>
 
 <script>
+import walletController from "../../controllers/walletController";
+
 export default {
   name: "ProfileMenu",
   methods: {},
@@ -32,6 +34,14 @@ export default {
       const isAdmin = this.$store.state.wallet.isAdmin;
 
       return isAdmin;
+    },
+    membership() {
+      const membershipId = this.$store.state.wallet.membership;
+      const membership = walletController.getTPlanetMembershipById(
+        membershipId
+      );
+
+      return membership;
     },
   },
   mounted() {},

@@ -1,29 +1,29 @@
 <template>
-  <div class="grid grid-cols-12 gap-x-4 text-center text-gray-200">
+  <div class="grid grid-cols-12 gap-x-4 text-center text-white">
     <div
-      class="col-span-4 bg-gray-900 rounded-lg flex flex-col justify-center px-1 py-3"
+      class="col-span-4 bg-gray-800 rounded-lg flex flex-col justify-center px-1 py-3"
     >
       <div v-if="this.price !== null">{{ formattedPrice }}</div>
       <div v-else>Loading....</div>
-      <div class="text-xs">Price</div>
+      <div class="text-xs text-yellow-200">Price</div>
     </div>
     <div
-      class="col-span-4 bg-gray-900 rounded-lg flex flex-col justify-center px-1 py-3"
+      class="col-span-4 bg-gray-800 rounded-lg flex flex-col justify-center px-1 py-3"
     >
       <div v-if="this.circulatingSupply !== null">
         {{ formattedCirculatingSupply }}
       </div>
       <div v-else>Loading....</div>
-      <div class="text-xs">Circulating Supply</div>
+      <div class="text-xs text-yellow-200">Circulating Supply</div>
     </div>
     <div
-      class="col-span-4 bg-gray-900 rounded-lg flex flex-col justify-center px-1 py-3"
+      class="col-span-4 bg-gray-800 rounded-lg flex flex-col justify-center px-1 py-3"
     >
       <div v-if="this.price !== null && this.circulatingSupply !== null">
         {{ formattedMarketcap }}
       </div>
       <div v-else>Loading....</div>
-      <div class="text-xs">Marketcap</div>
+      <div class="text-xs text-yellow-200">Marketcap</div>
     </div>
   </div>
 </template>

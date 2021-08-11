@@ -19,7 +19,7 @@
       >
         {{ this.tokenData.name }}
       </router-link>
-      <div class=" dark:text-gray-200 text-sm text-gray-200">
+      <div class=" dark:text-gray-200 text-sm text-white">
         {{ this.tokenData.symbol }}
       </div>
     </div>
@@ -46,7 +46,7 @@
 
     <div class="col-span-3 text-center">
       <div v-if="this.loaded.price">
-        <div class="text-gray-200 text-sm ">
+        <div class="text-white text-sm ">
           {{ tokenAmount }}
         </div>
         <div class="text-yellow-200 text-xs ">

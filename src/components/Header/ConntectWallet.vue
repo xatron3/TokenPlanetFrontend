@@ -38,7 +38,6 @@
 
 <script>
 import ProfileMenu from "./ProfileMenu.vue";
-
 import walletController from "../../controllers/walletController";
 
 export default {

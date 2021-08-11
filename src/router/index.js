@@ -12,6 +12,7 @@ import TPlanetToken from "@/pages/TPlanetToken.vue";
 
 // Admin pages
 import Dashboard from "@/pages/admin/Dashboard.vue";
+import AddToken from "@/pages/admin/AddToken.vue";
 
 // General Pages
 import NotFound from "@/pages/general/NotFound.vue";
@@ -45,8 +46,14 @@ const routes = [
   {
     path: "/admin",
     name: "Admin",
-    component: Dashboard,
     beforeEnter: admin,
+    component: Dashboard,
+  },
+  {
+    path: "/admin/add-token",
+    name: "Add Token",
+    // beforeEnter: admin,
+    component: AddToken,
   },
   {
     path: "/:catchAll(.*)",

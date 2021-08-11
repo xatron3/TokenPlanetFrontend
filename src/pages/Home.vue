@@ -4,7 +4,7 @@
       <WalletOverview />
 
       <div
-        class="grid grid-cols-12 gap-x-4 mt-2 px-4 py-3 text-center text-gray-200"
+        class="grid grid-cols-12 gap-x-4 mt-2 px-4 py-3 text-center text-white"
       >
         <div class="col-span-1"></div>
         <div class="col-span-3 text-left">TOKEN INFO</div>
@@ -25,7 +25,7 @@
 
     <div class="col-span-12 md:col-span-4">
       <h2 class="text-3xl text-white">NEW TOKENS</h2>
-      <span class="text-sm text-gray-300"
+      <span class="text-sm text-gray-100"
         >New listed tokens on PancakeSwap</span
       >
       <div v-if="newPairsAmount !== 0">

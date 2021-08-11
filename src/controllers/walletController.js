@@ -41,6 +41,42 @@ class WalletController {
     }
   }
 
+  async getTPlanetMembership() {
+    const balance = store.state.wallet.tPlanetBalance;
+    let membership;
+
+    if (balance >= 100 && balance <= 1000) {
+      membership = 1; // Member
+    } else if (balance >= 1001 && balance <= 10000) {
+      membership = 2; // Bronze
+    } else if (balance >= 10001 && balance <= 100000) {
+      membership = 3; // Silver
+    } else if (balance > 100001) {
+      membership = 4; // Golden
+    } else {
+      membership = 0; // None
+    }
+
+    store.commit("setMembership", membership);
+  }
+
+  getTPlanetMembershipById(id) {
+    switch (id) {
+      case 0:
+        return "None";
+      case 1:
+        return "Member";
+      case 2:
+        return "Bronze";
+      case 3:
+        return "Silver";
+      case 4:
+        return "Golden";
+      default:
+        return "none";
+    }
+  }
+
   async loadTPlanetBalance() {
     const ownedAmount = await tokenController.getTokenAmount(
       store.state.wallet.address,
@@ -48,6 +84,8 @@ class WalletController {
     );
 
     store.commit("setTPlanetBalance", ownedAmount);
+
+    this.getTPlanetMembership();
   }
 
   /**

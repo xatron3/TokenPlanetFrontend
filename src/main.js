@@ -11,11 +11,12 @@ router.beforeEach((to) => {
   document.title = `Token Planet - ${to.name}`;
 });
 
-app.use(router);
 app.use(store);
 
 app.mount("#app");
 
 window.addEventListener("load", () => {
   require("./helpers/ethers");
+
+  app.use(router);
 });

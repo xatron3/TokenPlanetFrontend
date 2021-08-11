@@ -5,7 +5,7 @@
 @import "./assets/css/all.css";
 
 body {
-  background-color: #1a191d;
+  background-color: #363e45;
 }
 
 .loader {
@@ -23,7 +23,7 @@ body {
 }
 
 .nav .router-link-active {
-  background: #1a191d;
+  background: #242a2f;
   padding: 0.375rem 0.75rem;
   border-radius: 20px;
   color: rgba(243, 244, 246, var(--tw-text-opacity)) !important;
